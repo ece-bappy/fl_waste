@@ -1,0 +1,73 @@
+# Medical Waste Sorting System Configuration
+
+detection:
+  model_path: "models/yolo11n.pt"
+  confidence_threshold: 0.5
+  device: "cpu"  # "cuda" for GPU acceleration
+  dual_loop_learning:
+    enabled: true
+    fast_loop_threshold: 0.5
+    slow_loop_batch_size: 10
+    adaptation_buffer_size: 50
+
+federated_learning:
+  server:
+    host: "localhost"
+    port: 8765
+    aggregation_rounds: 100
+    min_clients: 2
+    aggregation_timeout: 300  # seconds
+    model_save_interval: 10  # rounds
+  client:
+    learning_rate: 0.001
+    local_epochs: 1
+    batch_size: 32
+    data_size_weight: true
+    privacy_noise: 0.01
+
+robotics:
+  arduino:
+    port: "/dev/ttyUSB0"  # Linux/Mac, use "COM3" for Windows
+    baudrate: 115200
+    timeout: 1.0
+    connection_retries: 3
+  sorting:
+    timeout: 30.0  # seconds
+    retry_attempts: 3
+    emergency_stop_enabled: true
+    position_tolerance: 10  # steps
+
+data:
+  dataset_path: "data/healthcare_nodes"
+  cache_size: 1000
+  validation_split: 0.2
+  augmentation:
+    enabled: true
+    rotation_range: 15  # degrees
+    brightness_range: 0.2
+    contrast_range: 0.2
+    noise_std: 5.0
+  simulation:
+    num_nodes: 5
+    samples_per_node: 500
+    node_specializations: ["hospital", "clinic", "pharmacy", "dental", "laboratory"]
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/system.log"
+  max_file_size: "10MB"
+  backup_count: 5
+  console_output: true
+
+performance:
+  max_concurrent_clients: 10
+  model_update_frequency: 100  # milliseconds
+  memory_limit_mb: 2048
+  gpu_memory_fraction: 0.8
+
+safety:
+  emergency_stop_enabled: true
+  waste_detection_timeout: 5.0  # seconds
+  position_verification: true
+  auto_home_on_error: true

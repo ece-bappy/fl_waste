@@ -1,0 +1,39 @@
+# Core ML and Computer Vision
+torch>=2.0.0
+torchvision>=0.15.0
+ultralytics>=8.0.0
+opencv-python>=4.8.0
+numpy>=1.24.0
+Pillow>=10.0.0
+
+# Federated Learning
+websockets>=11.0.0
+asyncio>=3.4.3
+
+# Robotics and Hardware Interface
+pyserial>=3.5
+
+# Data Processing
+pandas>=2.0.0
+scikit-learn>=1.3.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Configuration and Utilities
+PyYAML>=6.0
+tqdm>=4.65.0
+pathlib>=1.0.1
+
+# Development and Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+black>=23.0.0
+flake8>=6.0.0
+
+# Logging and Monitoring
+loguru>=0.7.0
+wandb>=0.15.0
+
+# Optional: GPU acceleration
+# torch-audio>=2.0.0  # Uncomment if using audio features
+# tensorrt>=8.6.0     # Uncomment for NVIDIA TensorRT optimization
